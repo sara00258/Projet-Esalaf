@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="352.0" prefWidth="464.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.esalaf.HelloController">
+    <Label fx:id="welcomeText" text="Bienvenue" />
+    <MenuBar>
+        <Menu text="Navigation">
+            <MenuItem text="Credit" onAction="#onCreditMenuClick" />
+            <MenuItem text="Products" onAction="#onProductsMenuClick" />
+            <MenuItem text="Clients" onAction="#onClientsMenuClick" />
+        </Menu>
+    </MenuBar>
+
+    <BorderPane >
+        <top>
+            <MenuBar>
+                <Menu text="Credit">
+                    <MenuItem text="Manage Credit" onAction="#manageCredit"/>
+                </Menu>
+                <Menu text="Products">
+                    <MenuItem text="Manage Products" onAction="#manageProducts"/>
+                </Menu>
+                <Menu text="Clients">
+                    <MenuItem text="Manage Clients" onAction="#manageClients"/>
+                </Menu>
+            </MenuBar>
+        </top>
+        <center>
+            <TabPane>
+                <Tab text="Credit">
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label text="Credit Management" />
+                        <HBox spacing="10">
+                            <Label text="Customer Name:" />
+                            <TextField fx:id="customerNameTextField" />
+                            <Label text="Amount:" />
+                            <TextField fx:id="amountTextField" />
+                        </HBox>
+                        <HBox spacing="10">
+                            <Button text="Add Credit" onAction="#onAddCreditButtonClick" />
+                            <Button text="Edit Credit" onAction="#onEditCreditButtonClick" />
+                            <Button text="Delete Credit" onAction="#onDeleteCreditButtonClick" />
+                        </HBox>
+                        <TableView fx:id="TableView">
+                            <columns>
+                                <TableColumn text="ID" fx:id="col1" />
+                                <TableColumn text="Amount" fx:id="col2" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Products">
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label text="Product Management" />
+                        <!-- Add UI elements for product management here -->
+                        <HBox spacing="10">
+                            <Label text="Product Name:" />
+                            <TextField fx:id="ProductNameTextField" />
+                            <Label text="Price:" />
+                            <TextField fx:id="priceTextField" />
+                        </HBox>
+                        <HBox spacing="10">
+                            <Button text="Add Product" onAction="#onAddProductButtonClick" />
+                            <Button text="Edit Product" onAction="#onEditProductButtonClick" />
+                            <Button text="Delete Product" onAction="#onDeleteProductButtonClick" />
+                        </HBox>
+                        <TableView fx:id="produitTab">
+                            <columns>
+                                <TableColumn text="ID" fx:id="produitId" />
+                                <TableColumn text="Product Name" fx:id="produitName" />
+                                <TableColumn text="Price" fx:id="produitPrice" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+                <Tab text="Clients">
+                        <VBox spacing="10.0">
+                            <HBox spacing="10.0">
+                                <Label text="Client Name:" />
+                                <TextField fx:id="clientNameTextField" />
+                            </HBox>
+                            <HBox spacing="10.0">
+                                <Label text="Client Phone:" />
+                                <TextField fx:id="clientPhoneTextField" />
+                            </HBox>
+                            <Button text="Add Client" onAction="#addClientButtonClicked" />
+                            <TableView fx:id="clientTableView">
+                                <columns>
+                                    <TableColumn fx:id="clientNameColumn" text="Client Name" />
+                                    <TableColumn fx:id="clientPhoneColumn" text="Client Phone" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+            </TabPane>
+        </center>
+    </BorderPane>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+
+    <Button onAction="#onSaveButtonClick" text="Save!" fx:id="ok" />
+
+    <TabPane fx:id="tabPane">
+        <Tab text="Clients">
+            <TableView fx:id="clientTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="col_id"/>
+                    <TableColumn text="Nom" fx:id="col_nom"/>
+                    <TableColumn text="Telephone" fx:id="col_tele"/>
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab text="Produits">
+            <TableView fx:id="productTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="col_product_id"/>
+                    <TableColumn text="Nom" fx:id="col_product_name"/>
+                    <TableColumn text="Prix" fx:id="col_product_price"/>
+                </columns>
+            </TableView>
+        </Tab>
+    </TabPane>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+        <Button onAction="#addClientButtonClicked" text="Add Client" fx:id="addBtn" />
+
+
+    </HBox>
+</VBox>
